@@ -39,24 +39,26 @@ const Interview = () => {
 
 
     return (
-        <div className='pt-28'>
+        <div className='pt-36 container px-12'>
             <h2 className='font-bold text-2xl'>Let's Get Started </h2>
             <div className='grid grid-cols-1 md:grid-cols-2 gap-10'>
                 <div className='flex flex-col my-5 gap-5 '>
                     <div className='flex flex-col gap-5 p-5 rounded-lg border'>
                         <h2 className='text-lg'>
-                            <strong>Job Role/Job Position :</strong>{interviewData?.jobPosition}
+                            <strong>Job Role/Job Position : </strong>{interviewData?.jobPosition}
                         </h2>
                         <h2 className='text-lg'>
-                            <strong>Job Description/Tech Stack :</strong>{interviewData?.jobDesc}
+                            <strong>Job Description/Tech Stack : </strong>{interviewData?.jobDesc}
                         </h2>
                         <h2 className='text-lg'>
-                            <strong>Years of Experience :</strong>{interviewData?.jobExperience}
+                            <strong>Years of Experience : </strong>{interviewData?.jobExperience}
                         </h2>
                     </div>
-                    <div className='p-5 border rounded-lg border-yellow-300 bg-yellow-100'>
+                    <div className='p-5 border rounded-lg border-yellow-300 bg-[#dfeb75]'>
                         <h2 className='flex gap- items-center text-yellow-500'><Lightbulb /><strong>Information</strong></h2>
-                        <h2 className='text-yellow-500'>bjjjhghjgjhhjbjbjjg</h2>
+                        <h2 className='text-yellow-500 mt-2'>  Please enable your webcam and microphone to start the AI-generated
+                            mock interview. The interview consists of five questions. You’ll
+                            receive a personalized report based on your responses at the end.{" "}</h2>
                     </div>
                 </div>
                 <div>

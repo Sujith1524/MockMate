@@ -375,8 +375,14 @@ const RecordAnswerSection = ({ mockInterviewQuestion, activeQuestionIndex, inter
                 {/* <Button variant="outline" onClick={() => window.location.reload()}>
                     <RefreshCw className="mr-2" /> Refresh
                 </Button> */}
-                {interimResult}
+                {/* {interimResult} */}
             </div>
+            {interimResult && (
+                <p className="text-sm text-gray-500 mt-2">
+                    <strong>Current Speech:</strong>
+                    {interimResult}
+                </p>
+            )}
         </div>
     );
 };

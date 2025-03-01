@@ -25,7 +25,9 @@ const QuestionsSection = ({ mockInterviewQuestion, activeQuestionIndex }) => {
     };
 
     const handleVolumeClick = () => {
-        const text = mockInterviewQuestion && mockInterviewQuestion[activeQuestionIndex];
+        const text = mockInterviewQuestion && mockInterviewQuestion[activeQuestionIndex]?.question;
+        console.log(text, "text");
+
         if (isSpeaking) {
             stopSpeech();
         } else {

@@ -22,7 +22,7 @@ const InterviewListCard = ({ interviewList }) => {
             <h2 className='text-sm text-gray-600'>{interviewList?.jobExperience} Years of Experience</h2>
             <h2 className='text-xs text-gray-500'>{interviewList?.createdAt}</h2>
             <div className='flex justify-between w-full mt-3 gap-3'>
-                <Button size="sm" variant="outline" className="w-full bg-violet-500" onClick={onFeedback}>
+                <Button size="sm" variant="outline" className="w-full bg-black text-white" onClick={onFeedback}>
                     Feedback
                 </Button>
                 {/* <Button size="sm" variant="outline" className="w-full">
