@@ -11,12 +11,13 @@ const InterviewList = () => {
     const { user } = useUser()
     const [interviewList, setInterviewList] = useState([])
     const [loading, setLoading] = useState(true)
+    const [count, setCount] = useState(0)
 
     useEffect(() => {
         if (user) {
             getInterviewList()
         }
-    }, [user])
+    }, [user, count])
 
     const getInterviewList = async () => {
         setLoading(true)
@@ -46,7 +47,7 @@ const InterviewList = () => {
                 <div className='grid grid-cols-1 md:grid-cols-3 gap-5 mt-4'>
                     {interviewList.length > 0 ? (
                         interviewList.map((item, index) => (
-                            <InterviewListCard interviewList={item} key={index} />
+                            <InterviewListCard interviewList={item} key={index} setCount={setCount} count={count} />
                         ))
                     ) : (
                         <p className="text-gray-500">No interviews found.</p>
