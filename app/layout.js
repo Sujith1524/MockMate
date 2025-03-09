@@ -25,7 +25,7 @@ export default function RootLayout({ children }) {
     <ClerkProvider publishableKey="pk_test_Z3Jvd24tYm9iY2F0LTc4LmNsZXJrLmFjY291bnRzLmRldiQ">
       <html lang="en">
         <body
-          className={`${geistSans.variable}  antialiased lassName="dark:bg-black"`}
+          className={`${geistSans.variable}  antialiased`}
         >
           <Providers>{children}</Providers>
         </body>

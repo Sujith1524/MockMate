@@ -11,7 +11,7 @@ const QuestionsSection = ({ mockInterviewQuestion, activeQuestionIndex }) => {
             const speech = new SpeechSynthesisUtterance(text);
             speech.onstart = () => setIsSpeaking(true); // Set speaking state to true
             speech.onend = () => setIsSpeaking(false);  // Reset speaking state after speech ends
-            window.speechSynthesis.speak(speech);
+            window?.speechSynthesis.speak(speech);
         } else {
             alert('Sorry, Your browser does not support text-to-speech');
         }
@@ -34,9 +34,6 @@ const QuestionsSection = ({ mockInterviewQuestion, activeQuestionIndex }) => {
             textToSpeech(text);
         }
     };
-
-
-    console.log(mockInterviewQuestion, "page2@@@");
 
     return (
         <div className='p-5 mt-8 border rounded-lg'>

@@ -8,10 +8,6 @@ export default function Home() {
       <Header />
       <Hero />
       <Feature />
-      {/* <Toaster />
-    <div className="mx-5 md:mx-10 lg:mx-36">
-        {children}
-    </div> */}
     </div>
   );
 }

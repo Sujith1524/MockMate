@@ -30,57 +30,7 @@ const AddNewInterview = () => {
     const { user } = useUser();
     const router = useRouter();
 
-    // const handleSubmit = async () => {
-    //     setLoading(true)
-    //     console.log(jobPosition, jobDesc, jobExperience);
 
-    //     if (!jobPosition && !jobDesc && !jobExperience) {
-    //         console.log("bbbb");
-
-    //         toast.error("Please fill all the fields")
-    //         return
-    //     }
-
-    //     const InputPrompt = "Job position: " + jobPosition + ",Job Description:" + jobDesc + ",Years of Experience: " + jobExperience + ",Depends on Job position, Job Description & Years of Experience give us 5 interview question along with Answer in JSON format,Give question and answers as field in JSON "
-
-    //     const result = await chatSession.sendMessage(InputPrompt)
-
-    //     // const MockResponse = {result.response.text()}.replace('```json', '').replace('```')
-
-    //     const MockResponse = result.response
-    //         .text()
-    //         .replace('```json', '')
-    //         .replace('```', '');
-
-    //     console.log(MockResponse, "new");
-    //     setJsonResponse(MockResponse)
-
-    //     console.log(JSON.parse(MockResponse));
-
-    //     if (MockResponse) {
-    //         const res = await db.insert(MockInterview)
-    //             .values({
-    //                 mockId: uuidv4(),
-    //                 jsonMockResp: MockResponse,
-    //                 jobPosition: jobPosition,
-    //                 jobDesc: jobDesc,
-    //                 jobExperience: jobExperience,
-    //                 createdBy: user?.primaryEmailAddress?.emailAddress,
-    //                 createdAt: moment().format('DD-MM-yyyy')
-    //             }).returning({ mockId: MockInterview.mockId })
-
-    //         setLoading(false)
-    //         if (res) {
-    //             setOpenDailog(false)
-    //             router.push(`/dashboard/interview/${res[0]?.mockId}`)
-    //         }
-    //         console.log(res, "reponse");
-    //     } else {
-    //         console.log("error occured");
-
-    //     }
-
-    // }
 
     const handleSubmit = async () => {
         setLoading(true);
@@ -93,7 +43,7 @@ const AddNewInterview = () => {
         }
 
         const InputPrompt = `Job position: ${jobPosition}, Job Description: ${jobDesc}, Years of Experience: ${jobExperience}. 
-        Based on these details, generate 5 interview questions along with their answers in JSON format. 
+        Based on these details, generate 5 interview questions for begginer friendly along with their answers in JSON format. 
         The response should have 'questions' and 'answers' as fields in JSON.`;
 
         try {
@@ -142,12 +92,12 @@ const AddNewInterview = () => {
         } finally {
             setLoading(false);
         }
-    };
+    }
 
     return (
         <div>
             <div
-                className="p-10 border rounded-lg bg-secondary hover:scale-105 hover:shadow-md cursor-pointer transition-all"
+                className="p-10 border-2 rounded-lg bg-secondary hover:scale-105 hover:shadow-md cursor-pointer transition-all"
                 onClick={() => setOpenDailog(true)}
             >
                 <h2 className="text-lg font-bold">+ Add new</h2>
