@@ -36,7 +36,7 @@ const Header = () => {
           </Link>
 
           {/* Show About, Features, Pricing only if NOT on the Dashboard */}
-          {pathname !== "/dashboard" && (
+          {!pathname.startsWith("/dashboard") && (
             <ul className="hidden lg:flex col-start-4 col-end-8 text-black-500 items-center">
               <LinkScroll
                 activeClass="active"
