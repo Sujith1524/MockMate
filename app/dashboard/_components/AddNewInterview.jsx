@@ -43,7 +43,7 @@ const AddNewInterview = () => {
         }
 
         const InputPrompt = `Job position: ${jobPosition}, Job Description: ${jobDesc}, Years of Experience: ${jobExperience}. 
-        Based on these details, generate 5 interview questions for begginer friendly along with their answers in JSON format. 
+        Based on these details, generate 7 interview questions for begginer friendly along with their answers in JSON format. 
         The response should have 'questions' and 'answers' as fields in JSON.`;
 
         try {
@@ -64,7 +64,9 @@ const AddNewInterview = () => {
                 const parsedResponse = JSON.parse(MockResponse);
                 setJsonResponse(parsedResponse);
             } catch (error) {
+               
                 throw new Error("Failed to parse AI response");
+               
             }
 
             const res = await db
@@ -81,18 +83,20 @@ const AddNewInterview = () => {
                 .returning({ mockId: MockInterview.mockId });
 
             if (res?.length > 0) {
-                setOpenDailog(false);
                 router.push(`/dashboard/interview/${res[0]?.mockId}`);
+                setOpenDailog(false);
             } else {
                 throw new Error("Database insert failed");
             }
         } catch (error) {
             console.error("Error:", error.message);
-            toast.error(error.message || "An error occurred. Please try again.");
+            // toast.error(error.message || "An error occurred. Please try again.");
+            toast.error(" Please provide a realistic job title and description.")
         } finally {
             setLoading(false);
         }
     }
+
 
     return (
         <div>

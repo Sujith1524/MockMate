@@ -340,12 +340,14 @@ const RecordAnswerSection = ({ mockInterviewQuestion, activeQuestionIndex, inter
             <div className="flex flex-col justify-center items-center rounded-md relative">
                 <Image src="/web-cam3.avif" alt="webcam" width={300} height={300} className="absolute" />
                 <Webcam
-                    mirrored={false}
+                    mirrored={true}
                     style={{
                         height: 300,
                         width: "100%",
                         zIndex: 10,
                     }}
+                   
+
                 />
             </div>
 

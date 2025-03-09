@@ -30,7 +30,7 @@ const InterviewListCard = ({ interviewList, count, setCount }) => {
     };
 
     return (
-        <div className="border shadow-sm rounded-lg p-3">
+        <div className="border-2 shadow-sm rounded-lg p-3">
             <div className="flex items-start justify-between">
                 <div>
                     <h2 className="font-bold text-sm text-primary">

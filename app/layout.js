@@ -27,7 +27,8 @@ export default function RootLayout({ children }) {
         <body
           className={`${geistSans.variable}  antialiased`}
         >
-          <Providers>{children}</Providers>
+          {/* <Providers>{children}</Providers> */}
+          {children}
         </body>
       </html>
     </ClerkProvider>

@@ -227,10 +227,16 @@ const Feedback = () => {
                 description="Your personalized feedback is now available. Dive in to see your strengths, areas for improvement, and tips to help you ace your next interview."
             />
             {isLoading ? (
-                <div className="flex flex-col items-center justify-center mt-4">
-                    <div className="animate-spin rounded-full h-10 w-10 border-t-2 border-b-2 border-gray-900"></div>
-                    <p className="mt-2 text-gray-600">Loading feedback, please wait...</p>
-                </div>
+                 <div className="flex flex-col items-center justify-center h-[20vh] bg-gray-100 space-y-3">
+                 <div className="flex space-x-2">
+                   <div className="w-4 h-4 bg-blue-500 rounded-full animate-bounce"></div>
+                   <div className="w-4 h-4 bg-blue-500 rounded-full animate-bounce delay-150"></div>
+                   <div className="w-4 h-4 bg-blue-500 rounded-full animate-bounce delay-300"></div>
+                 </div>
+                 <p className="text-gray-600 text-base font-normal">
+                   Loading Feedbacks, please wait...
+                 </p>
+               </div>
             ) : (
                 <>
                     <p className="text-base text-muted-foreground">
