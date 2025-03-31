@@ -6,8 +6,7 @@ import { useUser } from "@clerk/nextjs";
 import { useEffect, useState } from "react"
 import { db } from "@/utils/db";
 import { eq } from "drizzle-orm";
-import Link from "next/link";
-import { ChevronLeft } from "lucide-react";
+
 
 const ResumePage = () => {
 

@@ -37,7 +37,7 @@ const formatDisplayDate = (dateString) => {
     return format(date, "MMM yyyy");
 };
 
-export function EntryForm({ type, entries, onChange }) {
+export function EntryForm({ type, entries, onChange, labeLName, title }) {
     const [isAdding, setIsAdding] = useState(false);
 
     const entrySchema = z
@@ -134,13 +134,6 @@ export function EntryForm({ type, entries, onChange }) {
     }
 
 
-
-
-
-
-
-
-
     const {
         loading: isImproving,
         fn: improveWithAIFn,
@@ -214,7 +207,7 @@ export function EntryForm({ type, entries, onChange }) {
                         <div className="grid grid-cols-2 gap-4">
                             <div className="space-y-2">
                                 <Input
-                                    placeholder="Title/Position"
+                                    placeholder={title || "Title/Position"}
                                     {...register("title")}
                                     error={errors.title}
                                 />
@@ -224,7 +217,7 @@ export function EntryForm({ type, entries, onChange }) {
                             </div>
                             <div className="space-y-2">
                                 <Input
-                                    placeholder="Organization/Company"
+                                    placeholder={labeLName || "Organization/Company"}
                                     {...register("organization")}
                                     error={errors.organization}
                                 />

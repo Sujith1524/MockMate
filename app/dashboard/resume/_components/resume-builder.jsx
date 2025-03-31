@@ -18,15 +18,10 @@ import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Textarea } from "@/components/ui/textarea";
 import { Input } from "@/components/ui/input";
-// import { saveResume } from "@/actions/resume";
 import { EntryForm } from "./entry-form";
 import useFetch from "@/hooks/use-fetch";
 import { useUser } from "@clerk/nextjs";
-// import { entriesToMarkdown } from "@/app/lib/helper";
-// import { resumeSchema } from "@/app/lib/schema";
-// import html2pdf from "html2pdf.js/dist/html2pdf.min.js";
-// import html2pdf from "html2pdf.js/dist/html2pdf.min.js";
-import html2pdf from "html2pdf.js";
+// import html2pdf from "html2pdf.js";
 import { z } from "zod";
 import { db } from "@/utils/db";
 import { eq } from "drizzle-orm";
@@ -245,6 +240,10 @@ export default function ResumeBuilder({ initialContent }) {
     const generatePDF = async () => {
         setIsGenerating(true);
         try {
+
+            const html2pdf = (await import('html2pdf.js')).default;
+
+
             const element = document.getElementById("resume-pdf");
 
             if (!element) {
@@ -451,8 +450,10 @@ export default function ResumeBuilder({ initialContent }) {
                                 render={({ field }) => (
                                     <EntryForm
                                         type="Experience"
+                                        labeLName={"Organization/Company"}
                                         entries={field.value}
                                         onChange={field.onChange}
+
                                     />
                                 )}
                             />
@@ -474,6 +475,8 @@ export default function ResumeBuilder({ initialContent }) {
                                         type="Education"
                                         entries={field.value}
                                         onChange={field.onChange}
+                                        labeLName={"School/University"}
+                                        title={"Title"}
                                     />
                                 )}
                             />
@@ -495,6 +498,8 @@ export default function ResumeBuilder({ initialContent }) {
                                         type="Project"
                                         entries={field.value}
                                         onChange={field.onChange}
+                                        labeLName={"Project"}
+                                        title={"Title"}
                                     />
                                 )}
                             />

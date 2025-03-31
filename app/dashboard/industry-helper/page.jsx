@@ -155,6 +155,8 @@ export default function AIInterviewHelper() {
                                         <SelectItem value="C++">C++</SelectItem>
                                         <SelectItem value="React">React</SelectItem>
                                         <SelectItem value="Node.js">Node.js</SelectItem>
+                                        <SelectItem value="Php">Php</SelectItem>
+                                        <SelectItem value="Cloud">Cloud</SelectItem>
                                     </SelectContent>
                                 </Select>
                             </div>
@@ -196,7 +198,7 @@ export default function AIInterviewHelper() {
                         {techQuestions.length > 0 && (
                             <div className="mt-6">
                                 <h3 className="text-xl font-semibold mb-3">Q&A for {language} ({difficulty})</h3>
-                                <div className="grid grid-cols-1 gap-4">
+                                <div className="grid grid-cols-1 gap-4 mb-8">
                                     {techQuestions.map((qa, idx) => (
                                         <Card key={idx} className="shadow-lg border border-gray-200">
                                             <CardContent className="p-4">
