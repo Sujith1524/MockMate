@@ -91,7 +91,7 @@ const Feedback = () => {
                     {feedbackList.length === 0 ? (
                         <p className='text-center font-bold text-xl'>No Feedback Found</p>
                     ) : (
-                        <Accordion type="single" collapsible className="space-y-6">
+                        <Accordion type="single" collapsible className="space-y-6 mb-6">
                             {feedbackList.map((feed) => (
                                 <AccordionItem key={feed.id} value={feed.id} className="border rounded-lg shadow-md">
                                     <AccordionTrigger
