@@ -1,142 +1,3 @@
-// "use client"
-// import { Button } from '@/components/ui/button'
-// import Image from 'next/image'
-// import React, { useEffect, useState } from 'react'
-// import Webcam from 'react-webcam'
-// import useSpeechToText from 'react-hook-speech-to-text';
-// import { Mic } from 'lucide-react'
-// import { toast } from 'sonner'
-// import { chatSession } from '@/utils/GeminiAImodal'
-// import { db } from '@/utils/db'
-// import { UserAnswer } from '@/utils/schema'
-// import { useUser } from '@clerk/nextjs'
-// import moment from 'moment'
-
-// const RecordAnswerSection = ({ mockInterviewQuestion, activeQuestionIndex, interviewData }) => {
-
-//     const { user } = useUser()
-
-//     const [userAnswer, setUserAnswer] = useState('')
-//     const [loading, setLoading] = useState(false)
-
-//     const {
-//         error,
-//         interimResult,
-//         isRecording,
-//         results,
-//         startSpeechToText,
-//         stopSpeechToText,
-//         setResults
-//     } = useSpeechToText({
-//         continuous: true,
-//         useLegacyResults: false
-
-//     });
-
-//     useEffect(() => {
-//         results.map((result) => {
-//             setUserAnswer(prevAns => prevAns + result?.transcript)
-//         })
-//     }, [results])
-
-
-//     useEffect(() => {
-//         if (isRecording && userAnswer?.length > 1) {
-//             updateUserAnswer();
-//         }
-
-//     }, [userAnswer])
-
-//     console.log(userAnswer, "user answer");
-
-
-//     const StartStopRecording = async () => {
-//         if (isRecording) {
-//             stopSpeechToText()
-//             if (userAnswer?.length < 1) {
-//                 setLoading(false)
-//                 toast('Error while saving your answer, please record again')
-//                 return;
-//             }
-//         } else {
-//             startSpeechToText()
-//         }
-//     }
-
-
-//     const updateUserAnswer = async () => {
-//         setLoading(true)
-//         const feedbackPrompt = `Question:${mockInterviewQuestion && mockInterviewQuestion[activeQuestionIndex]?.question}, User Answer:${userAnswer}, Depends in question and user answer for given interview question please give us rating for answer and feedback as area of improvement if any in just 3 to 5 lines to improve it in JSON format with rating field and feedback field  `
-
-//         const result = await chatSession.sendMessage(feedbackPrompt)
-
-//         const MockResponse = result.response
-//             .text()
-//             .replace('```json', '')
-//             .replace('```', '');
-
-//         console.log(MockResponse, "mockreposnse");
-
-//         const JsonFeedbackResp = JSON.parse(MockResponse)
-
-//         const resp = await db.insert(UserAnswer)
-//             .values({
-//                 mockIdRef: interviewData?.mockId,
-//                 question: mockInterviewQuestion && mockInterviewQuestion[activeQuestionIndex]?.question,
-//                 correctAns: mockInterviewQuestion && mockInterviewQuestion[activeQuestionIndex]?.answer,
-//                 userAns: userAnswer,
-//                 feedback: JsonFeedbackResp?.feedback,
-//                 rating: JsonFeedbackResp?.rating,
-//                 userEmail: user?.primaryEmailAddress?.emailAddress,
-//                 createdAt: moment().format('DD-MM-yyyy')
-//             })
-//         if (resp) {
-//             toast('User Answer recorded successfully ')
-//             setUserAnswer('')
-//             setResults([])
-//         }
-//         setUserAnswer([])
-//         setLoading(false)
-//     }
-
-
-
-
-
-
-//     return (
-//         <div className='flex flex-col justify-center items-center mt-20'>
-//             <div className='flex flex-col justify-center items-center   rounded-md  '>
-//                 <Image src={'/web-cam3.avif'} alt='webcam' width={300} height={300}
-//                     className='absolute'
-//                 />
-//                 <Webcam
-//                     mirrored={false}
-//                     style={{
-//                         height: 300,
-//                         width: "100%",
-//                         zIndex: 10
-//                     }}
-//                 />
-//             </div>
-//             <Button variant="outline" className="my-10"
-//                 // onClick={isRecording ? stopSpeechToText : startSpeechToText}
-//                 onClick={StartStopRecording}
-//                 disabled={loading}
-//             >
-//                 {
-//                     isRecording ? <h2 className='text-red-600 flex gap-2'><Mic /> Stop Recording</h2> :
-//                         'Record Answer'
-//                 }
-
-//             </Button>
-
-//         </div>
-//     )
-// }
-
-// export default RecordAnswerSection
-
 "use client";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
@@ -246,6 +107,9 @@ const RecordAnswerSection = ({ mockInterviewQuestion, activeQuestionIndex, inter
                 createdAt: moment().format("DD-MM-yyyy"),
             });
 
+            console.log(resp, "resp");
+
+
             if (resp) {
                 toast("Answer saved successfully!");
                 setIsAnswerSaved(true); // ✅ Prevent duplicate save
@@ -346,7 +210,7 @@ const RecordAnswerSection = ({ mockInterviewQuestion, activeQuestionIndex, inter
                         width: "100%",
                         zIndex: 10,
                     }}
-                   
+
 
                 />
             </div>

@@ -42,6 +42,7 @@ const AddNewInterview = () => {
             return;
         }
 
+
         const InputPrompt = `Job position: ${jobPosition}, Job Description: ${jobDesc}, Years of Experience: ${jobExperience}. 
         Based on these details, generate 7 interview questions for begginer friendly along with their answers in JSON format. 
         The response should have 'questions' and 'answers' as fields in JSON.`;
@@ -64,9 +65,9 @@ const AddNewInterview = () => {
                 const parsedResponse = JSON.parse(MockResponse);
                 setJsonResponse(parsedResponse);
             } catch (error) {
-               
+
                 throw new Error("Failed to parse AI response");
-               
+
             }
 
             const res = await db
@@ -97,6 +98,9 @@ const AddNewInterview = () => {
         }
     }
 
+    console.log(jobPosition, "jobdsc");
+
+
 
     return (
         <div>
@@ -120,7 +124,9 @@ const AddNewInterview = () => {
                                 </h2>
                                 <div className="mt-7 my-2">
                                     <label>Job Role/Job Position</label>
+
                                     <Input
+
                                         onChange={(event) => setJobPosition(event.target.value)}
                                         className="mt-1.5"
                                         placeholder="Ex.Full Stack developer"

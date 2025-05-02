@@ -35,6 +35,9 @@ const QuestionsSection = ({ mockInterviewQuestion, activeQuestionIndex }) => {
         }
     };
 
+    console.log(mockInterviewQuestion, " mock inte#####");
+
+
     return (
         <div className='p-5 mt-8 border rounded-lg'>
             <div className='grid grid-cols-2 md:grid-cols-4 lg:grid-cols-4 gap-5'>

@@ -33,6 +33,8 @@ const Interview = () => {
 
   console.log(interviewData);
 
+
+
   return (
     <div className="pt-36 container px-12">
       <h2 className="font-bold text-2xl">Let's Get Started </h2>
