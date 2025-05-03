@@ -59,8 +59,6 @@ const AddNewInterview = () => {
                 .replace("```json", "")
                 .replace("```", "");
 
-            console.log(MockResponse, "AI Response");
-
             try {
                 const parsedResponse = JSON.parse(MockResponse);
                 setJsonResponse(parsedResponse);
@@ -97,10 +95,6 @@ const AddNewInterview = () => {
             setLoading(false);
         }
     }
-
-    console.log(jobPosition, "jobdsc");
-
-
 
     return (
         <div>

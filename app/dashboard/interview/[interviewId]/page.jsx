@@ -26,13 +26,9 @@ const Interview = () => {
       .select()
       .from(MockInterview)
       .where(eq(MockInterview.mockId, params.interviewId));
-    console.log(result, "result");
 
     setInterviewData(result[0]);
   };
-
-  console.log(interviewData);
-
 
 
   return (

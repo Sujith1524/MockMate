@@ -36,21 +36,14 @@ export default function ResumeBuilder({ initialContent }) {
 
     const { isSignedIn, user } = useUser();
 
-    console.log(initialContent, "dd");
-
 
     async function saveResume(content) {
-
-        console.log(content, "content");
 
 
         if (user) {
             const userEmail = user?.primaryEmailAddress; // Clerk provides this
-            console.log(userEmail, "useremail");
 
             const emailAddress = userEmail?.emailAddress
-
-            console.log(emailAddress, "email address");
 
 
             try {
@@ -149,8 +142,6 @@ export default function ResumeBuilder({ initialContent }) {
     const [previewContent, setPreviewContent] = useState(initialContent);
     // const { user } = useUser();
     const [resumeMode, setResumeMode] = useState("preview");
-
-    console.log(previewContent, "previwcontent");
 
 
     const {

@@ -35,7 +35,6 @@ const StartInterview = () => {
             }
 
             const interview = result[0]
-            console.log(interview, "dats");
 
             setInterviewData(interview)
 
